@@ -1,8 +1,6 @@
-package DSA;
+package DSA.StringDemo;
 
 import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Queue;
 
 public class test {
     public static void main(String[] args) {

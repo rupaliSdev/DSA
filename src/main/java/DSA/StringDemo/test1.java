@@ -1,6 +1,7 @@
-package DSA.Amazon;
+package DSA.StringDemo;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
 
 public class test1 {
     public static int minimizeReleaseDays(List<Integer> schedule, List<Integer> refactorDays) {
