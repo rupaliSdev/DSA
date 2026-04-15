@@ -1,4 +1,4 @@
-package DSA.Matrix;
+package DSA.AMatrix;
 
 public class MaxSumSquareSubMatrix {
 

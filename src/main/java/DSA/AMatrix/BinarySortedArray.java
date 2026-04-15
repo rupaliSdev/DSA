@@ -1,4 +1,4 @@
-package DSA.Matrix;
+package DSA.AMatrix;
 
 //
 //Given a binary 2D array, where each row is sorted. Find the row with the maximum number of 1s.

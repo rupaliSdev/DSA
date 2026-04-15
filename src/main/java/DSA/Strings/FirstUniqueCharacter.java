@@ -1,4 +1,4 @@
-package DSA.StringDemo;
+package DSA.Strings;
 
 
 //Given a sting , return the character that appears the minimum number of

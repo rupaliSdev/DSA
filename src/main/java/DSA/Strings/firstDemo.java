@@ -1,4 +1,4 @@
-package DSA.StringDemo;
+package DSA.Strings;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,7 +18,7 @@ public class firstDemo {
         //pointing two different objects
         String ab = new String("rupali");
         String bc = new String("rupali");
-        //using assignment we are comparing hashcodes not coontents
+        //using assignment we are comparing hashcodes not contents
         System.out.println(ab ==bc);
         System.out.println(ab.compareTo(bc));
         System.out.println(ab.equals(bc));
@@ -110,6 +110,7 @@ public class firstDemo {
 			 
 			 if (str1.charAt(i)!= (str1.charAt(n))){
 				 System.out.println("not a palindrome");
+				 return;
 			 }
 			 else {
 				 i++;

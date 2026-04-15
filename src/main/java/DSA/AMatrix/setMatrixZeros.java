@@ -1,4 +1,4 @@
-package DSA.Matrix;
+package DSA.AMatrix;
 
 public class setMatrixZeros {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package DSA.StringDemo;
+package DSA.Strings;
 
 import java.util.Arrays;
 
@@ -11,10 +11,29 @@ public class LPS {
         Arrays.stream(x).forEach(System.out::print);
         Arrays.stream(y).forEach(System.out::print);
         System.out.println();
+        System.out.println(isPatternMatchI("ABABACD", "ACD"));
         System.out.println(findTheString("ABABACD", "ACD"));
-
-
     }
+
+    public static int isPatternMatchI(String s, String p) {
+
+        int i = 0, j;
+        int k = 0;
+        while (i < s.length() - p.length()) {
+            j = 0;
+            while (j < p.length() && s.charAt(i + j) == p.charAt(j)) {
+                j++;
+            }
+            if (j == p.length()) {
+                return i;
+            }
+            i++;
+        }
+        return -1;
+    }
+
+    //tc:O(n*m))
+
 
     //kmp search
     public static int findTheString(String hayStack, String pattern) {
@@ -54,6 +73,7 @@ public class LPS {
         }
         return lps;
     }
+    //o(n)
 
     private static int[] generateLPS(String text) {
         int[] lps = new int[text.length()];

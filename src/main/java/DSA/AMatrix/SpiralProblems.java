@@ -1,4 +1,4 @@
-package DSA.Matrix;
+package DSA.AMatrix;
 
 import java.util.ArrayList;
 import java.util.List;

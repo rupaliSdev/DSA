@@ -1,4 +1,4 @@
-package DSA.Matrix;
+package DSA.AMatrix;
 
 public class NinetyDegreeRotation {
     public static void main(String[] args) {

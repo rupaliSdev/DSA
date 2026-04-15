@@ -1,10 +1,11 @@
-package DSA.StringDemo;
+package prefixSum;
 
-public class longestCommonprefix {
+public class EquilibriumIndex {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-        
+		
+
 	}
 
 }
