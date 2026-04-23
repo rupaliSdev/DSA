@@ -1,5 +1,6 @@
 package DSA.slidingwindowTP;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class Twosum {
@@ -9,19 +10,25 @@ public class Twosum {
         int[] arr = {3, 4, 5, 6, 8};
         int target = 7;
         int[] result = findSum(arr, target);
-        // int[] result =findSum(arr,target);
+        Arrays.stream(findOptimalSum(new int[]{3,2,4},6)).forEach(System.out::println);
 
     }
 
     //brute force approach
     static int[] findSum(int[] arr, int target) {
-
         int l = 0, r = arr.length - 1;
-        while (l <= r) {
-            if (arr[l] + arr[r] == target) {
+        Arrays.sort(arr);
+        while (l < r) {
+            int sum =arr[l] + arr[r];
+            if (sum == target) {
                 return new int[]{l, r};
-            } else if (arr[l] + arr[r] < target) l++;
-            else r--;
+            }
+            else if (sum < target) {
+                l++;
+            }
+            else {
+                r--;
+            }
 
         }
         return new int[]{-1, -1};
@@ -38,7 +45,7 @@ public class Twosum {
 
             int comp = target - arr[i];
             if (map.containsKey(comp)) {
-                return new int[]{i, map.get(comp)};
+                return new int[]{map.get(comp),i};
             } else {
                 map.put(arr[i], i);
             }

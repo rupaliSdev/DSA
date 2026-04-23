@@ -11,21 +11,21 @@ public class MaxConsecutiveIII {
 
     public int longestOnes(int[] nums, int k) {
 
-        int left =0,right =0;
-        int zeros=0;
-        int maxLen=0;
-        while(right<nums.length){
-            if(nums[right]==0){
-               zeros++;
+        int left = 0, right = 0;
+        int zeros = 0;
+        int maxLen = 0;
+        while (right < nums.length) {
+            if (nums[right] == 0) {
+                zeros++;
             }
 
-            while (zeros>k && left<=right){
-                if(nums[left]==0){
+            while (zeros > k && left <= right) {
+                if (nums[left] == 0) {
                     zeros--;
                 }
                 left++;
             }
-            maxLen=Math.max(maxLen,right-left+1);
+            maxLen = Math.max(maxLen, right - left + 1);
             right++;
 
         }

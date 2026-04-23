@@ -57,7 +57,7 @@ public class MaxConsecutiveOnes {
             }
             ans = Math.max(ans, i - l + 1);
         }
-        ans= Math.min(ans,totalOnes);
+        ans = Math.min(ans, totalOnes);
 
         return ans;
     }

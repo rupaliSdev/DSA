@@ -1,6 +1,6 @@
 package DSA.LinkedList;
 
-public class basics {
+public class Basics {
 	
 	public static void main(String[] args) {
 		

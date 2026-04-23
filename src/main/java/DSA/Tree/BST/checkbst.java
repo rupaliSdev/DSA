@@ -1,4 +1,4 @@
-package DSA.BST;
+package DSA.Tree.BST;
 
 public class checkbst {
 
@@ -27,7 +27,7 @@ public class checkbst {
 			return true;
 		}
 		if(root.val>=minValue && root.val<=maxValue) {
-			return (checkBST(root.left,Integer.MIN_VALUE,root.val-1)&&checkBST(root.right,root.val+1,Integer.MAX_VALUE));
+			return (checkBST(root.left,Integer.MIN_VALUE,root.val-1)&& checkBST(root.right,root.val+1,Integer.MAX_VALUE));
 		}
 		return false;
 	}

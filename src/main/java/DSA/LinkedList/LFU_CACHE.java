@@ -20,7 +20,7 @@ public class LFU_CACHE {
     class Node {
         int key;
         int val;
-        int freq;
+        int freq = 1;
         Node prev;
         Node next;
 
@@ -42,7 +42,7 @@ public class LFU_CACHE {
 
     private void insert(Node node) {
         map.put(node.key, node);
-        freqMap.computeIfAbsent(node.freq, k-> new DLL()).addFirst(node);
+        freqMap.computeIfAbsent(node.freq, k -> new DLL()).addFirst(node);
     }
 
     private void updateFrequency(int key) {
@@ -54,7 +54,7 @@ public class LFU_CACHE {
             minFreq += 1;
         }
         node.freq += 1;
-        freqMap.computeIfAbsent(node.freq, k-> new DLL()).addFirst(node);
+        freqMap.computeIfAbsent(node.freq, k -> new DLL()).addFirst(node);
 
     }
 
@@ -67,34 +67,35 @@ public class LFU_CACHE {
         }
         if (map.size() == capacity) {
             DLL minFreqDLL = freqMap.get(minFreq);
-            Node node= minFreqDLL.tail.prev;
+            Node node = minFreqDLL.tail.prev;
             minFreqDLL.remove(node);
             map.remove(node.key);
         }
         Node newNode = new Node(key, value);
         insert(newNode);
-        minFreq=1;
+        minFreq = 1;
 
     }
 
     class DLL {
-        Node head= new Node(0,0);
-        Node tail= new Node(0,0);
+        Node head = new Node(0, 0);
+        Node tail = new Node(0, 0);
 
         public DLL() {
             head.next = tail;
             tail.prev = head;
         }
+
         private void remove(Node node) {
             node.prev.next = node.next;
             node.next.prev = node.prev;
         }
 
         public void addFirst(Node node) {
-            node.next= head.next;
-            node.next.prev= node;
-            node.prev= head;
-            head.next= node;
+            node.next = head.next;
+            node.next.prev = node;
+            node.prev = head;
+            head.next = node;
         }
     }
 }

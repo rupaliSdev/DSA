@@ -1,4 +1,4 @@
-package DSA.BST;
+package DSA.Tree.BST;
 
 
 
