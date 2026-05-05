@@ -9,33 +9,33 @@ public class AthLargestElement {
 
     }
 
-    public int[] findAthLargest(int[] arr,int A){
+    public int[] findAthLargest(int[] arr, int A) {
 
         PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
         int[] res = new int[arr.length];
-        for(int i=0;i<A;i++){
-            if(i!=A-1){
-                res[i]=-1;
+        for (int i = 0; i < A; i++) {
+            if (i != A - 1) {
+                res[i] = -1;
             }
             priorityQueue.offer(arr[i]);
         }
-        res[A-1] =priorityQueue.peek();
+        res[A - 1] = priorityQueue.peek();
 
-        for(int i=A;i<arr.length;i++){
+        for (int i = A; i < arr.length; i++) {
             priorityQueue.offer(arr[i]);
             priorityQueue.poll();
-            res[i] =priorityQueue.peek();
+            res[i] = priorityQueue.peek();
         }
 
         return res;
     }
 
-    public int findKthLargestElement(int[] arr,int K){
+    public int findKthLargestElement(int[] arr, int K) {
 
-        PriorityQueue<Integer> priorityQueue= new PriorityQueue<>();
-        for(int i:arr){
+        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
+        for (int i : arr) {
             priorityQueue.offer(i);
-            if(priorityQueue.size()>K){
+            if (priorityQueue.size() > K) {
                 priorityQueue.poll();
             }
         }
@@ -45,12 +45,12 @@ public class AthLargestElement {
 
     //n insertion
 
-    public int findKthSmallestElement(int[] arr,int K){
+    public int findKthSmallestElement(int[] arr, int K) {
 
-        PriorityQueue<Integer> priorityQueue= new PriorityQueue<>(Comparator.reverseOrder());
-        for(int i:arr){
+        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>(Comparator.reverseOrder());
+        for (int i : arr) {
             priorityQueue.offer(i);
-            if(priorityQueue.size()>K){
+            if (priorityQueue.size() > K) {
                 priorityQueue.poll();
             }
         }

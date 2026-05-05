@@ -4,12 +4,11 @@ public class CountNoOfDivisors {
 
     public static void main(String[] args) {
         // TODO Auto-generated method stub
-        int x = NoOfDivisior(360);
+        int x = noOfDivisior(360);
         System.out.println(x);
     }
 
-    static int NoOfDivisior(int N) {
-
+    static int noOfDivisior(int N) {
         int[] spf = new int[N + 1];
         spf[0] = -1;
         spf[1] = -1;
@@ -38,8 +37,6 @@ public class CountNoOfDivisors {
 
         }
         return ans;
-        // TODO Auto-generated method stub
-
     }
 
 

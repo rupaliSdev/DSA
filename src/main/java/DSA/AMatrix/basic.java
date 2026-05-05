@@ -1,4 +1,4 @@
-package DSA.matrix;
+package DSA.AMatrix;
 
 public class basic {
 
@@ -24,12 +24,8 @@ public class basic {
 
         }
         for (int i = 0; i < A.length; i++) {
-
-
             for (int i1 = 0; i1 < A[0].length; i1++) {
                 System.out.print(A[i][i1] + " ");
-
-
             }
             System.out.println();
 

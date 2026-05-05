@@ -14,7 +14,7 @@ public class findMissingOrRepeatingNumber {
             xor ^= arr[i];
             xor ^= (i + 1);
         }
-        int number = xor & ~(xor - 1);
+        int number = xor & ~(xor - 1);//xor & -xor;
         int zeros = 0, ones = 0;
 
         for (int i = 0; i < n; i++) {

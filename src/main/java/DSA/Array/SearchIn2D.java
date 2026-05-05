@@ -7,12 +7,12 @@ public class SearchIn2D {
 	public static void main(String[] args) {
 		System.out.println(Integer.MIN_VALUE);
 		int[][] arr = {{4,5,6},{7,8,9},{10,11,12}};
-		int[] ans =LinearSearch(arr,5);
+		int[] ans =linearSearch(arr,5);
 		System.out.println(Arrays.toString(ans));
 		System.out.println(max(arr));
 
 	}
-	static int[] LinearSearch(int[][] arr ,int x) {
+	static int[] linearSearch(int[][] arr ,int x) {
 		for(int i=0 ; i<arr.length;i++ ) {
 			for(int j=0;j<arr[i].length;j++) {
 				

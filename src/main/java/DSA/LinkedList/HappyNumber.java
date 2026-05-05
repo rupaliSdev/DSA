@@ -22,12 +22,15 @@ public class HappyNumber {
 	   
    }
    static int square(int n) {
-	   if(n==0) {
-		   	return 0;
-	   }
-	   int r = n%10;
-	   return (int) (Math.pow(r, 2)+square((int)n/10))  ;
-	   }
+		int sqSum=0;
+		while (n>0){
+			int r = n%10;
+			sqSum+= r*r;
+			n=n/10;
+		}
+
+		return sqSum;
+	}
 
 
 	   //https://leetcode.com/problems/add-two-numbers/

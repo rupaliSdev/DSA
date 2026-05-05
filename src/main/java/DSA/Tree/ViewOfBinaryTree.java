@@ -30,11 +30,6 @@ public class ViewOfBinaryTree {
         root.right.left = new TreeNode(6);
         root.right.right = new TreeNode(7);
 
-        System.out.println(solveIstRightView(root).toString());
-
-
-        System.out.println(solveIIRightView(root).toString());
-        System.out.println(solveIILeftView(root).toString());
         System.out.println(bounndaryOrderTraversal(root).toString());
 
     }
@@ -57,57 +52,8 @@ public class ViewOfBinaryTree {
       return res;
     }
 
-    public static List<Integer> solveIstRightView(TreeNode A) {
 
 
-        Queue<TreeNode> queue = new LinkedList<>();
-        List<Integer> res = new ArrayList<>();
-        TreeNode  curr = A;
-        queue.offer(curr);
-        queue.offer(null);
-        while(!queue.isEmpty()){
-            TreeNode temp = queue.peek();
-            if(temp!=null){
-                res.add(temp.val);
-                while (queue.peek()!=null){
-                    if(temp.right!=null){
-                        queue.offer(temp.right);
-                    }
-                    if(temp.left!=null){
-                        queue.offer(temp.left);
-                    }
-                    queue.remove();
-                    temp=queue.peek();
-                }
-                queue.offer(null);
-
-            }
-            queue.remove();
-        }
-
-
-    return res;
-    }
-
-    private static List<Integer> solveIILeftView(TreeNode root) {
-
-        Queue<TreeNode> queue = new LinkedList<>();
-        List<Integer> res = new ArrayList<>();
-        if(root!=null) queue.offer(root);
-
-        while (!queue.isEmpty()){
-            int n = queue.size();
-            for(int i=0;i<n;i++){
-                TreeNode r= queue.poll();
-                if(i==0) res.add(r.val);
-                if(r.left!=null) queue.add(r.left);
-                if(r.right!=null) queue.add(r.right);
-
-
-            }
-        }
-        return res;
-    }
 
 
     private static List<Integer> bounndaryOrderTraversal(TreeNode root){
