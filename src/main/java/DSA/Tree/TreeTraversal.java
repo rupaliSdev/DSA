@@ -1,8 +1,6 @@
 package DSA.Tree;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 public class TreeTraversal {
 
@@ -21,7 +19,8 @@ public class TreeTraversal {
         System.out.println(InorderIter(root));
         System.out.println(preOrderIter(root));
         System.out.println(postorderIter(root));
-
+        System.out.println(levelOrderTraversal(root));
+        System.out.println(zigzagLevelOrder(root));
     }
 
     //root left right
@@ -110,6 +109,55 @@ public class TreeTraversal {
 
         }
         return res;
+    }
+
+
+    private static List<List<Integer>> levelOrderTraversal(TreeNode root) {
+        List<List<Integer>> result = new ArrayList<>();
+        Queue<TreeNode> q = new LinkedList<>();
+        q.offer(root);
+        while (!q.isEmpty()) {
+            int size = q.size();
+            List<Integer> res = new ArrayList<>();
+            for (int i = 0; i < size; i++) {
+                TreeNode x = q.poll();
+                res.add(x.val);
+                if (x.left != null) {
+                    q.offer(x.left);
+                }
+                if (x.right != null) {
+                    q.offer(x.right);
+                }
+            }
+            result.add(res);
+        }
+        return result;
+    }
+
+    //zigzagtraversal
+
+    public static List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+
+        List<List<Integer>> result = new ArrayList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
+        boolean leftToRight = true;
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            int n = queue.size();
+            LinkedList<Integer> res = new LinkedList<>();
+            for (int i = 0; i < n; i++) {
+                TreeNode q = queue.poll();
+                if (leftToRight) res.addLast(q.val);
+                else res.addFirst(q.val);
+                if (q.left != null) queue.add(q.left);
+                if (q.right != null) queue.add(q.right);
+            }
+            result.add(res);
+
+            leftToRight = !leftToRight;
+
+        }
+        return result;
     }
 
 }
