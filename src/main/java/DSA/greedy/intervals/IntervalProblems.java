@@ -15,22 +15,34 @@ public class IntervalProblems {
      *
      * */
 
+    public static void main(String[] args) {
+        int[][] test={{4,7},{1,4}};
 
-    public List<int[]> mergeIntervals(List<int[]> intervals) {
-        Collections.sort(intervals, (a, b) -> a[0] - b[0]);
-        int prev[] = intervals.get(0), i = 0, n = intervals.size();
+        int[][] res= mergeIntervals(test);
+
+    }
+    public static int[][] mergeIntervals(int[][] intervals) {
+        Arrays.sort(intervals,(a,b)->a[0]-b[0]);
+        int[] prev = intervals[0];
+
         List<int[]> res = new ArrayList<>();
-        while (i < n) {
-            int[] curr = intervals.get(1);
-            if (curr[0] < prev[1]) {
-                prev[1] = Math.max(curr[1], prev[1]);
-            } else {
-                res.add(prev);
-                prev = curr;
+
+        int i =1,n=intervals.length;
+        //(a,b),(c,d)
+        //c>=b && d>=a
+        while(i<n){
+            int[] curr = intervals[i];
+            if(prev[1] >= curr[0] ){
+                prev[1] = Math.max(prev[1],curr[1]);
             }
+            else{
+                res.add(prev);
+                prev= curr;
+            }
+            i++;
         }
         res.add(prev);
-        return res;
+        return res.toArray(new int[res.size()][]);
     }
 
     public List<int[]> insertIntervals(List<int[]> intervals, int[] newInterval) {

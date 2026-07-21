@@ -32,11 +32,11 @@ public class EditDistance {
         int[][] dp = new int[n + 1][m + 1];
 
 
-        for (int i = 0; i < n; i++) dp[0][i] = i; //s1 is empty so s2 we need to insert
-        for (int i = 0; i < n; i++) dp[i][0] = i; //s2 is empty so s1 we need to delete
+        for (int i = 0; i <= m; i++) dp[0][i] = i; //s1 is empty so s2 we need to insert
+        for (int i = 0; i <= n; i++) dp[i][0] = i; //s2 is empty so s1 we need to delete
 
-        for (int i = 1; i < n; i++) {
-            for (int j = 1; j < m; i++) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= m; i++) {
                 if (word1.charAt(i - 1) == word2.charAt(j - 1)) {
                     dp[i][j] = dp[i - 1][j - 1];
                 } else {
@@ -48,5 +48,46 @@ public class EditDistance {
             }
         }
         return dp[m][n];
+    }
+
+    public int minDistanceRecur(String word1, String word2,int i,int j) {
+
+        if(i==0){
+            return j;
+        }
+        if(j==0){
+            return i;
+        }
+
+        if(word1.charAt(i)==word2.charAt(j)){
+            return minDistanceRecur(word1,word2,i-1,j-1);
+        }
+        else {
+            return  1 + Math.min(Math.min(minDistanceRecur(word1,word2,i-1,j-1),minDistanceRecur(word1,word2,i-1,j)),
+                    minDistanceRecur(word1,word2,i,j-1));
+
+        }
+    }
+
+    public int minDistanceTopDown(String word1, String word2,int i,int j,int[][] dp) {
+
+        if(i==0){
+            return dp[i][j]= j;
+        }
+        if(j==0){
+            return dp[i][j]= i;
+        }
+
+        if(dp[i][j]!=-1){
+            return dp[i][j];
+        }
+        if(word1.charAt(i)==word2.charAt(j)){
+            return dp[i][j]=minDistanceTopDown(word1,word2,i-1,j-1,dp);
+        }
+        else {
+            return  dp[i][j]= 1 + Math.min(Math.min(minDistanceTopDown(word1,word2,i-1,j-1,dp),minDistanceTopDown(word1,word2,i-1,j,dp)),
+                    minDistanceTopDown(word1,word2,i,j-1,dp));
+
+        }
     }
 }
